@@ -70,7 +70,7 @@ GROUP BY
 ORDER BY total_orders
 LIMIT 3;
 
--- Ranking using Window Functions --
+-- Ranking using Window Functions, ROW_NUMBER() and RANK() --
 
 SELECT *
 FROM (
