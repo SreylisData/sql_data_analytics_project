@@ -88,7 +88,7 @@ customer_aggregation AS (
 		total_quantity,
 		total_products,
 		lifespan,
-		-- average order value (AVO)
+		-- average order value (AOV)
 		CASE 
 			WHEN total_sales = 0 THEN 0
 			ELSE total_sales / total_orders
