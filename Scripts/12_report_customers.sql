@@ -2,31 +2,31 @@
 ===============================================================================
 Customer Report
 ===============================================================================
-Purpose:
-    - This report consolidates key customer metrics and behaviors
+Purpose: This report consolidates key customer metrics and behaviour. 
 
-Highlights:
-    1. Gathers essential fields such as names, ages, and transaction details.
-	2. Segments customers into categories (VIP, Regular, New) and age groups.
-    3. Aggregates customer-level metrics:
-	   - total orders
-	   - total sales
-	   - total quantity purchased
-	   - total products
-	   - lifespan (in months)
-    4. Calculates valuable KPIs:
-	    - recency (months since last order)
-		- average order value
-		- average monthly spend
+Key Highlights:
+	1. Collect essential fields: name, age, and transaction details.
+	2. Segments customers into meaningful categories (VIP, Regular, New) and age groups.
+	3. Aggregate customer-level metrics:
+	    - Total orders
+	    - Total sales
+	    - Total quantity purchased
+	    - Total distinct products
+	    - Customer lifespan (in months)
+	4. Calculate customer KPIs:
+	    - Recency (months since last order)
+	    - Average order value (AOV)
+	    - Average monthly spend
 ===============================================================================
 */
 
 -- Create Report: gold.report_customers
-
 CREATE VIEW gold.report_customers AS
 
 WITH base_query AS (
--- 1. Base quary: retrieves core columns from tables 
+/*---------------------------------------------------------------------------
+	1) Base query: retrieve core columns from fact_sales and dim_customers
+---------------------------------------------------------------------------*/
 	SELECT
 		f.order_number,
 		f.product_key,  
@@ -43,7 +43,9 @@ WITH base_query AS (
 	WHERE f.order_date IS NOT NULL
 ), 
 customer_aggregation AS (
--- 2. Customer Aggregation: summarize key metrics at the customer level 
+/*---------------------------------------------------------------------------
+	2) Customer Aggregations: Summarizes key metrics at the customer level
+---------------------------------------------------------------------------*/
 	SELECT 
 		customer_key,
 		customer_number,
@@ -63,6 +65,9 @@ customer_aggregation AS (
 		customer_name,
 		age
 ) 
+/*---------------------------------------------------------------------------
+	3) Final Query: Combine all customer results into one output
+---------------------------------------------------------------------------*/
 	SELECT
 		customer_key,
 		customer_number,
