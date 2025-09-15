@@ -2,29 +2,31 @@
 ===============================================================================
 Product Report
 ===============================================================================
-Purpose:
-    - This report consolidates key product metrics and behaviors
+Purpose: This report consolidates key product metrics and behaviour. 
 
-Highlights:
-    1. Gathers essential fields such as product name, category, subcategory, and cost.
-	2. Segments products by revenue to identify High-Performers, Mid-Range, or Low_Performers.
-    3. Aggregates product-level metrics:
-	   - total orders
-	   - total sales
-	   - total quantity sold
-	   - total customers (UNIQUE)
-	   - lifespan (in months)
-    4. Calculates valuable KPIs:
-	    - recency (months since last order)
-		- average order revenue (AOR)
-		- average monthly revenue
+Key Highlights:
+	1. Collect essential fields: product name, category, subcategory, and cost.
+	2. Segment products by revenue to identify High-Performer, Mid-Range, or Low-Performer.
+	3. Aggregate product-level metrics:
+	    - Total orders
+	    - Total sales
+	    - Total quantity sold
+	    - Total unique customers
+	    - Lifespan (in months)
+	4. Calculate product KPIs:
+	    - Recency (months since last order)
+	    - Average order revenue (AOR)
+	    - Average monthly revenue
 ===============================================================================
 */
 
+-- Create Report: gold.report_products
 CREATE VIEW gold.report_products AS
 
 WITH base_query AS (
--- 1. Base quary: retrieves core columns from fact_sales and dim_products.
+/*---------------------------------------------------------------------------
+	1) Base query: retrieve core columns from fact_sales and dim_products
+---------------------------------------------------------------------------*/
 	SELECT
 		f.order_number,
 		f.order_date,
@@ -42,6 +44,9 @@ WITH base_query AS (
 	WHERE f.order_date IS NOT NULL  
 ),
 product_aggregation AS (
+/*---------------------------------------------------------------------------
+	2) Product Aggregations: Summarizes key metrics at the product level
+---------------------------------------------------------------------------*/
 	SELECT
 		product_key,
 		product_name,
@@ -64,6 +69,9 @@ product_aggregation AS (
 		subcategory,
 		cost
 )
+/*---------------------------------------------------------------------------
+	3) Final Query: Combine all product results into one output
+---------------------------------------------------------------------------*/
 	SELECT
 		product_key,
 		product_name,
