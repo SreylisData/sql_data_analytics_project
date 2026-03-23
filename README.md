@@ -76,9 +76,10 @@ This project strengthened my ability to use SQL for real-world data analysis bey
 ---
 ## **Repository Structure**
 
-```sql_data_analytics_project/
+```
+sql_data_analytics_project/
 ├── data/               # Raw and cleaned datasets
 ├── scripts/            # SQL queries for analysis
 ├── reports/            # Final analytical outputs
 └── README.md           # Project documentation
-
+```
