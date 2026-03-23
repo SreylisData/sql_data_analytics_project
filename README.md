@@ -5,6 +5,7 @@ This project is a collection of SQL scripts designed to analyze customer behavio
 
 The repository demonstrates how SQL can be used not just for querying data, but for building structured, repeatable analytics workflows.
 
+---
 ## **Objectives**
 
 * Explore and understand raw data structures
@@ -13,6 +14,7 @@ The repository demonstrates how SQL can be used not just for querying data, but 
 * Analyze trends over time
 * Deliver insights that support business decisions
 
+---
 ## **Key Insights**
 
 * A small segment of customers contributes disproportionately to total revenue (VIP segment)
@@ -21,6 +23,7 @@ The repository demonstrates how SQL can be used not just for querying data, but 
 * Sales trends highlight periods of growth and stagnation
 * Segmentation enables clearer identification of high- and low-performing groups
 
+---
 ## **Analytical Approach**
 
 This project applies SQL to:
@@ -31,6 +34,7 @@ This project applies SQL to:
 * Analyze trends using time-based queries
 * Rank and compare performance across dimensions
 
+---
 ## **Reports** 
 
 **Customer Analytics**
@@ -53,6 +57,7 @@ Evaluates how products perform across key metrics:
 * Product lifespan
 * Average Order Revenue (AOR)
 
+---
 ## **Skills Demonstrated**
 
 * SQL for data analysis and transformation
@@ -63,10 +68,12 @@ Evaluates how products perform across key metrics:
 * Trend and time-series analysis
 * Translating business questions into SQL queries
 
+---
 ## **What I Learned**
 
 This project strengthened my ability to use SQL for real-world data analysis beyond basic querying. I developed a deeper understanding of how to structure queries to answer business questions, create meaningful metrics, and segment data for actionable insights. It also reinforced the importance of writing clean, reusable SQL for scalable analytics.
 
+---
 ## **Repository Structure**
 
 ```sql_data_analytics_project/
